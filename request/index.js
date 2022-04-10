@@ -15,15 +15,16 @@ export const request = (params) => {
         mask: true
     });
     // 定义公共的url
-    const baseUrl = "https://m.sm.cn/api/rest";    //语句后要加分号
+    const baseUrl = "";    //语句后要加分号
+    // console.log(params);
     return new Promise((resolve, reject) => {
         wx.request({
             ...params,
             // header: header,
             url: baseUrl + params.url,
             success: (result) => {
-                resolve(result.data);
-                // resolve(result);
+                // resolve(result.data);
+                resolve(result);
             },
             fail: (err) => {
                 reject(err);
