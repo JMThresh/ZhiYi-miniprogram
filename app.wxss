@@ -1,6 +1,6 @@
 /**app.wxss**/
 
-@import "./styles/iconfont.wxss"
+@import "./styles/iconfont.wxss";
 
 /* 在微信小程序中 不支持 通配符 '*'  p0+m0+bz */
 page,view,text,swiper,swiper-item,image,navigator{

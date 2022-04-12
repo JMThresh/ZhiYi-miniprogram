@@ -41,11 +41,14 @@
 }
 .container l-tabs l-tabpanel .tab-content .alldata .tr .tc {
   flex: 1;
+  display: float;
   text-align: center;
+  justify-content: center;
   font-weight: bold;
 }
 .container l-tabs l-tabpanel .tab-content .alldata .tr .tc .province_show {
   display: float;
+  float: left;
 }
 .container l-tabs l-tabpanel .tab-content .alldata .tr .tc .province_hide {
   display: none;
