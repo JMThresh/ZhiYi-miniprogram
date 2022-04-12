@@ -40,7 +40,7 @@
           </view>
           <!-- 数据循环 -->
           <view class="tr">
-            <view class="tc city">大连
+            <view class="tc city {{isMunicipality?'province_hide':'province_show'}}">大连
               <view class="{{isMunicipality?'province_hide':'province_show'}}">辽宁</view>
             </view>
             <view class="tc numRed">0</view>
