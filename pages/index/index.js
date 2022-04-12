@@ -7,8 +7,11 @@ var QQMapWX = require("../../lib/qqmap-wx-jssdk.js");
 var qqmapsdk;
 Page({
   data: {
-    location: {},
-    city: ""
+    city: "",           // 用户所在城市
+    time: "04-12 14:53", // 疫情数据更新时间
+    countryEpidemicData: [],
+    cityEpidemicData: [],   // 城市的疫情数据
+
   },
   // 页面第一次加载时调用
   onLoad() {
@@ -38,9 +41,7 @@ Page({
       await authorize({name:'scope.userLocation'});
       let result = await getLocation();
       let {location} = {latitude:result.latitude,longitude:result.longitude};
-      this.setData({
-        location
-      })
+
       // 调用接口
       qqmapsdk.reverseGeocoder({
         location,

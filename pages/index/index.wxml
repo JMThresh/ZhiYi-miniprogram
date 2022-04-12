@@ -6,26 +6,58 @@
         <!-- 过去疫情数据总览 -->
         <view class="preview">
           <view class="tc">
-            <view class="text">本土新增</view>
-            <view class="number">1318</view>
+            <text class="text">本土新增</text>
+            <view class="number numRed">1251</view>
           </view>
           <view class="tc">
-            <view class="text">本土新增</view>
-            <view class="number">1318</view>
+            <view class="text">无症状</view>
+            <view class="number numOrange">23387</view>
           </view>
           <view class="tc">
-            <view class="text">本土新增</view>
-            <view class="number">1318</view>
+            <view class="text">现有确诊</view>
+            <view class="number numBlue">276455</view>
           </view>
           <view class="tc">
-            <view class="text">本土新增</view>
-            <view class="number">1318</view>
+            <view class="text">高/中风险</view>
+            <view class="number numBlue">
+              17<text class="delimiter">/</text>243
+            </view>
           </view>
         </view>
         <!-- 数据更新时间 -->
-        <view class="time"></view>
-        <!-- 数据展示列表 -->
-        <view class="alldata"></view>
+        <view class="time">
+          <text class="dataSourceTime">数据来源于国家和省市卫健委 统计截止{{time}}</text>
+        </view>
+        <!-- 各城市的疫情列表 -->
+        <view class="alldata">
+          <!-- 数据表头 -->
+          <view class="tr bgc">
+            <view class="tc city th">城市</view>
+            <view class="tc th">本土新增</view>
+            <view class="tc th">无症状</view>
+            <view class="tc th">现有确诊</view>
+            <view class="tc th">中高风险</view>
+          </view>
+          <!-- 数据循环 -->
+          <view class="tr">
+            <view class="tc city">大连
+              <view class="{{isMunicipality?'province_hide':'province_show'}}">辽宁</view>
+            </view>
+            <view class="tc numRed">0</view>
+            <view class="tc numOrange">5</view>
+            <view class="tc numBlue">39</view>
+            <view class="tc numBlue">1</view>
+          </view>
+          <view class="tr">
+            <view class="tc city">上海
+              <view class="{{isMunicipality?'province_hide':'province_show'}}"></view>
+            </view>
+            <view class="tc numRed">994</view>
+            <view class="tc numOrange">23349</view>
+            <view class="tc numBlue">6969</view>
+            <view class="tc numBlue">13</view>
+          </view>
+        </view>
       </view>
     </l-tabpanel>
     <l-tabpanel tab="大连" key="two" slot="two">

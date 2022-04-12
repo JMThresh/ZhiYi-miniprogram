@@ -23,7 +23,9 @@ page{
     14 px = 28rpx
     28与rpx中间不可以有空格
   */
+  padding: 0 15rpx;
   font-size: 28rpx;
+  background-color: #f4f6fa;
 }
 image{
   /* 使所有图片都占据100%容器宽度 */

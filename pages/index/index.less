@@ -1,44 +1,111 @@
-
-
 .container {
   padding: 0rpx 20rpx;
+  border-radius: 5rpx;
+  background-color: #fff;
   l-tabs {
+
     // 标签栏样式
-    .l-header-class{
+    .l-header-class {
       // margin: 0rpx;
     }
+
     // 标签页样式
-    .l-content-class{
+    .l-content-class {
       // background-color: #e5c06c;
     }
+
     l-tabpanel {
       .tab-content {
         
+        // 过去疫情数据总览
         .preview {
           display: flex;
           padding: 10rpx;
           border: 1px solid #ff6f03;
-          .tc{
+
+          .tc {
             flex: 1;
             display: flex;
             flex-direction: column;
             text-align: center;
-            .number{
-              font-size: 35rpx;
-              font-weight: 30rpx;
+
+            .text{
+              font-size: 27rpx;
+              font-weight: bold;
+            }
+            .number {
+              font-size: 31rpx;
+              font-weight: bold;
+              .delimiter{
+                color: #bbb;
+              }
             }
           }
         }
 
+        // 数据更新时间文本
         .time {
+          margin-top: 5rpx;
 
+          .dataSourceTime {
+            font-size: 20rpx;
+            color: #999;
+            text-align: left;
+            line-height: 50rpx;
+            // border: 1px solid #ff6f03;
+          }
         }
-
+        // 各城市的疫情列表
         .alldata {
-
+          // 数据循环 每一行
+          .tr {
+            display: flex;
+            border-bottom: 1rpx #f6f6f6 solid;
+            padding: 15rpx 10rpx;
+            // 每一项
+            .tc {
+              flex: 1;
+              text-align: center;
+              font-weight: bold;
+              .province_show{
+                display: float;
+              }
+              .province_hide{
+                display: none;
+              }
+            }
+            // 表头独有样式
+            .th{
+              font-weight: normal;
+            }
+            // 城市列表样式
+            .city {
+              text-align: left;
+            }
+            
+          }
+          // 灰色背景
+          .bgc{
+            background-color: #f7f7f7;
+          }
         }
       }
     }
   }
 }
 
+
+
+
+// 数字颜色
+.numRed {
+  color: #d00d0c;
+}
+
+.numOrange {
+  color: #ff6f03;
+}
+
+.numBlue{
+  color: #3b45ef;
+}

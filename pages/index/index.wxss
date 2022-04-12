@@ -1,5 +1,7 @@
 .container {
   padding: 0rpx 20rpx;
+  border-radius: 5rpx;
+  background-color: #fff;
 }
 .container l-tabs l-tabpanel .tab-content .preview {
   display: flex;
@@ -12,7 +14,57 @@
   flex-direction: column;
   text-align: center;
 }
+.container l-tabs l-tabpanel .tab-content .preview .tc .text {
+  font-size: 27rpx;
+  font-weight: bold;
+}
 .container l-tabs l-tabpanel .tab-content .preview .tc .number {
-  font-size: 35rpx;
-  font-weight: 30rpx;
+  font-size: 31rpx;
+  font-weight: bold;
+}
+.container l-tabs l-tabpanel .tab-content .preview .tc .number .delimiter {
+  color: #bbb;
+}
+.container l-tabs l-tabpanel .tab-content .time {
+  margin-top: 5rpx;
+}
+.container l-tabs l-tabpanel .tab-content .time .dataSourceTime {
+  font-size: 20rpx;
+  color: #999;
+  text-align: left;
+  line-height: 50rpx;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .tr {
+  display: flex;
+  border-bottom: 1rpx #f6f6f6 solid;
+  padding: 15rpx 10rpx;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .tr .tc {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .tr .tc .province_show {
+  display: float;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .tr .tc .province_hide {
+  display: none;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .tr .th {
+  font-weight: normal;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .tr .city {
+  text-align: left;
+}
+.container l-tabs l-tabpanel .tab-content .alldata .bgc {
+  background-color: #f7f7f7;
+}
+.numRed {
+  color: #d00d0c;
+}
+.numOrange {
+  color: #ff6f03;
+}
+.numBlue {
+  color: #3b45ef;
 }
