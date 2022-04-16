@@ -1,0 +1,58 @@
+{
+  "id": "3333566",
+  "name": "智疫",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "720962",
+      "name": "我的",
+      "font_class": "xiazai4",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "1999760",
+      "name": "我的_选中",
+      "font_class": "wode_xuanzhong",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "4237372",
+      "name": "登记总数",
+      "font_class": "dengjizongshu",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "14698923",
+      "name": "新冠疫情",
+      "font_class": "xgyq",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "18170563",
+      "name": "飞机,公共交通,出行",
+      "font_class": "airplane-full",
+      "unicode": "e9d5",
+      "unicode_decimal": 59861
+    },
+    {
+      "icon_id": "18170564",
+      "name": "飞机,公共交通,出行",
+      "font_class": "airplane",
+      "unicode": "e9d6",
+      "unicode_decimal": 59862
+    },
+    {
+      "icon_id": "19614459",
+      "name": "疫情",
+      "font_class": "yiqing",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    }
+  ]
+}
