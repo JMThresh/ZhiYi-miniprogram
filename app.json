@@ -4,6 +4,8 @@
     "pages/travel/travel",
     "pages/register/register",
     "pages/my/my",
+    "pages/cities/cities",
+    "pages/travel_detail/travel_detail",
     "pages/logs/logs"
   ],
   "window": {

@@ -3,5 +3,5 @@
     "l-input":"../../miniprogram_npm/lin-ui/input/index",
     "l-button":"../../miniprogram_npm/lin-ui/button/index"
   },
-  "navigationBarTitleText": "出行政策"
+  "navigationBarTitleText": "选择城市"
 }

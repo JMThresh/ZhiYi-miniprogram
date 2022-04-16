@@ -143,6 +143,6 @@ Page({
       cityData,
       nearbyTopCity,
     })
-  },
+  }
 
 })

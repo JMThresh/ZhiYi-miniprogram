@@ -1,7 +1,10 @@
 <view class="container">
-  <Tabs tabs="{{indexTabs}}" bindtabsItemChange="handleTabsItemChange">
-    <view class="tab-content" wx:for="{{indexTabs}}" wx:key="id" wx:if="{{item.isActive}}">
-      {{item.name}}
-    </view>
-  </Tabs>
+  <!-- 出行政策 -->
+  <view class="travel_strategy">
+    <view class="txt">出行政策</view>
+    <input type="text" class="from" value="{{city}}">{{city}}</input>
+    <view class="change iconfont icon-xunhuan:before"></view>
+    <navigator url="/pages/cities/cities" class="to">{{to}}</navigator>
+    <l-button  l-class="l-class" bindtap="{{handleTap}}">查询</l-button>
+  </view>
 </view>

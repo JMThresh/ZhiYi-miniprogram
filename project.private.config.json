@@ -14,6 +14,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "出行",
+          "pathName": "pages/travel/travel",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "选择城市页面",
+          "pathName": "pages/cities/cities",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

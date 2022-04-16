@@ -1,35 +1,49 @@
-// pages/travel/travel.js
+import { getSetting, authorize, getLocation } from "../../utils/asyncWx";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    indexTabs: [            // tabs标题及内容
-      {
-        value: "全国疫情",
-        id: 1,
-        isActive: true
-      },
-      {
-        value: "大连",
-        id: 2,
-        isActive: false
-      }
-    ]
+    city: ""
   },
 
-  //  处理Tabs点击事件
-  handleTabsItemChange(e) {
-    // 1 获取被点击的标题索引
-    const { index } = e.detail;
-    // 2 修改源数组
-    let { indexTabs } = this.data;
-    indexTabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
-    // 3 赋值到data中
-    this.setData({
-      indexTabs
-    })
+  onLoad(){
+    let city = wx.getStorageSync("city");
+    if(!city){
+      this.setCity();
+    }
+  },
+
+  // 获取地理位置的授权，得到经纬度，再逆地址解析得到所在城市
+  async setCity(){
+    // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.userLocation" 这个 scope
+    let authSetting = await getSetting();
+    if(!authSetting['scope.userLocation']){
+      await authorize({name:'scope.userLocation'});
+      let result = await getLocation();
+      let {location} = {latitude:result.latitude,longitude:result.longitude};
+
+      // 调用接口
+      qqmapsdk.reverseGeocoder({
+        location,
+        success:(res)=>{
+          let city = res.result.ad_info.city.replace('市','');
+          this.setData({
+            city
+          });
+          // 设置city的缓存
+          wx.setStorageSync("city",city);
+        },
+        fail:(res)=>{
+          console.log(res);
+        }
+      })
+    }
+  },
+
+  handleInput(e){
+    console.log(e);
   }
 
 })
