@@ -1,67 +1,112 @@
 <!-- index.wxml -->
 <view class="container">
-  <l-tabs bind:linchange="changeTabs" l-header-class="l-header-class" l-content-class="l-content-class">
-    <l-tabpanel tab="全国疫情" key="one" slot="one" >
-      <view class="tab-content">
-        <!-- 过去疫情数据总览 -->
-        <view class="preview">
-          <view class="tc">
-            <text class="text">本土新增</text>
-            <view class="number numRed">1251</view>
-          </view>
-          <view class="tc">
-            <view class="text">无症状</view>
-            <view class="number numOrange">23387</view>
-          </view>
-          <view class="tc">
-            <view class="text">现有确诊</view>
-            <view class="number numBlue">276455</view>
-          </view>
-          <view class="tc">
-            <view class="text">高/中风险</view>
-            <view class="number numBlue">
-              17<text class="delimiter">/</text>243
+    
+    <!-- 疫情数据 -->
+    <l-tabs bind:linchange="changeTabs" has-line="{{false}}" l-header-class="l-header-class" l-active-class="l-active-class" l-inactive-class="l-inactive-class">
+        <l-tabpanel tab="全国疫情" key="one" slot="one">
+            <view class="tab-content">
+                <!-- 过去疫情数据总览 -->
+                <view class="preview">
+                    <view class="tc">
+                        <text class="text">本土新增</text>
+                        <view class="number numRed">
+                            {{countryEpidemicData.local_sure_cnt_incr}}
+                        </view>
+                    </view>
+                    <view class="tc">
+                        <view class="text">无症状</view>
+                        <view class="number numOrange">{{countryEpidemicData.yst_sure_hid}}</view>
+                    </view>
+                    <view class="tc">
+                        <view class="text">现有确诊</view>
+                        <view class="number numBlue">{{countryEpidemicData.rest_sure_cnt}}</view>
+                    </view>
+                    <view class="tc">
+                        <view class="text">高/中风险</view>
+                        <view class="number numBlue">
+                            {{countryEpidemicData.danger[2]}}
+                            <text class="delimiter">/</text>
+                            {{countryEpidemicData.danger[1]}}
+                        </view>
+                    </view>
+                </view>
+                <!-- 数据更新时间 -->
+                <view class="time">
+                    <text class="dataSourceTime">数据来源于国家和省市卫健委 统计截止{{endTime}}</text>
+                </view>
+                <!-- 各城市的疫情列表 -->
+                <view class="alldata">
+                    <!-- 数据表头 -->
+                    <view class="tr bgc">
+                        <view class="tc city th">城市</view>
+                        <view class="tc th">本土新增</view>
+                        <view class="tc th">无症状</view>
+                        <view class="tc th">现有确诊</view>
+                        <view class="tc th">中高风险</view>
+                    </view>
+                    <!-- 数据循环 -->
+                    <view class="tr {{item.isLocal?'bgc':''}}" wx:for="{{citiesEpidemicData}}" wx:key="id">
+                        <view class="tc city ">{{item.city}}<text class="{{item.isMunicipality?'province_hide':'province_show'}}">{{item.province}}</text></view>
+                        <view class="tc numRed">{{item.sure_new_loc}}</view>
+                        <view class="tc numOrange">{{item.sure_new_hid}}</view>
+                        <view class="tc numBlue">{{item.present}}</view>
+                        <view class="tc numBlue">{{item.danger[1]+item.danger[2]}}</view>
+                    </view>
+                </view>
             </view>
-          </view>
-        </view>
-        <!-- 数据更新时间 -->
-        <view class="time">
-          <text class="dataSourceTime">数据来源于国家和省市卫健委 统计截止{{time}}</text>
-        </view>
-        <!-- 各城市的疫情列表 -->
-        <view class="alldata">
-          <!-- 数据表头 -->
-          <view class="tr bgc">
-            <view class="tc city th">城市</view>
-            <view class="tc th">本土新增</view>
-            <view class="tc th">无症状</view>
-            <view class="tc th">现有确诊</view>
-            <view class="tc th">中高风险</view>
-          </view>
-          <!-- 数据循环 -->
-          <view class="tr">
-            <view class="tc city {{isMunicipality?'province_hide':'province_show'}}">大连
-              <view class="{{isMunicipality?'province_hide':'province_show'}}">辽宁</view>
+        </l-tabpanel>
+        <!-- 用户所在城市的疫情数据 -->
+        <l-tabpanel tab="{{city}}" key="two" slot="two">
+            <view class="tab-content">
+                <!-- 本地过去疫情数据总览 -->
+                <view class="preview">
+                    <view class="tc">
+                        <text class="text">本土新增</text>
+                        <view class="number numRed">
+                            {{cityData.sure_new_loc}}
+                        </view>
+                    </view>
+                    <view class="tc">
+                        <view class="text">无症状</view>
+                        <view class="number numOrange">{{cityData.sure_new_hid}}</view>
+                    </view>
+                    <view class="tc">
+                        <view class="text">现有确诊</view>
+                        <view class="number numBlue">{{cityData.present}}</view>
+                    </view>
+                    <view class="tc">
+                        <view class="text">高/中风险</view>
+                        <view class="number numBlue">
+                            {{cityData.danger[2]}}
+                            <text class="delimiter">/</text>
+                            {{cityData.danger[1]}}
+                        </view>
+                    </view>
+                </view>
+                <!-- 数据更新时间 -->
+                <view class="time">
+                    <text class="dataSourceTime">数据来源于国家和省市卫健委 统计截止{{endTime}}</text>
+                </view>
+                <!-- 各城市的疫情列表 -->
+                <view class="alldata">
+                    <!-- 数据表头 -->
+                    <view class="tr bgc">
+                        <view class="tc city th">城市</view>
+                        <view class="tc th">本土新增</view>
+                        <view class="tc th">无症状</view>
+                        <view class="tc th">现有确诊</view>
+                        <view class="tc th">中高风险</view>
+                    </view>
+                    <!-- 数据循环 -->
+                    <view class="tr" wx:for="{{nearbyTopCity}}" wx:key="id">
+                        <view class="tc city ">{{item.city}}<text class="{{item.isMunicipality?'province_hide':'province_show'}}">{{item.province}}</text></view>
+                        <view class="tc numRed">{{item.sure_new_loc}}</view>
+                        <view class="tc numOrange">{{item.sure_new_hid}}</view>
+                        <view class="tc numBlue">{{item.present}}</view>
+                        <view class="tc numBlue">{{item.danger[1]+item.danger[2]}}</view>
+                    </view>
+                </view>
             </view>
-            <view class="tc numRed">0</view>
-            <view class="tc numOrange">5</view>
-            <view class="tc numBlue">39</view>
-            <view class="tc numBlue">1</view>
-          </view>
-          <view class="tr">
-            <view class="tc city">上海
-              <view class="{{isMunicipality?'province_hide':'province_show'}}"></view>
-            </view>
-            <view class="tc numRed">994</view>
-            <view class="tc numOrange">23349</view>
-            <view class="tc numBlue">6969</view>
-            <view class="tc numBlue">13</view>
-          </view>
-        </view>
-      </view>
-    </l-tabpanel>
-    <l-tabpanel tab="大连" key="two" slot="two">
-      <view class="tab-content"></view>
-    </l-tabpanel>
-  </l-tabs>
+        </l-tabpanel>
+    </l-tabs>
 </view>

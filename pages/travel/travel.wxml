@@ -1,0 +1,7 @@
+<view class="container">
+  <Tabs tabs="{{indexTabs}}" bindtabsItemChange="handleTabsItemChange">
+    <view class="tab-content" wx:for="{{indexTabs}}" wx:key="id" wx:if="{{item.isActive}}">
+      {{item.name}}
+    </view>
+  </Tabs>
+</view>

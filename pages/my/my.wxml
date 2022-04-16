@@ -1,0 +1,34 @@
+<view class="user_info_wrap">
+    <view wx:if="{{userInfo.avatarUrl}}" class="user_img_wrap">
+        <image class="user_bg" src="{{userInfo.avatarUrl}}" />
+        <view class="user_info">
+            <image class="user_icon" mode="widthFix" src="{{userInfo.avatarUrl}}" />
+            <view class="user_name">{{userInfo.nickName}}</view>
+        </view>
+    </view>
+    <view wx:else class="user_btn">
+        登录
+        <button type="primary" plain bindtap="handleGetUserProfile"></button>
+    </view>
+</view>
+<view class="user_content">
+    <view class="user_main">
+        <!-- 联系客服、意见反馈、关于我们 -->
+        <view class="app_info_wrap">
+            <view class="app_info_item app_info_contact">
+                <text>联系客服</text>
+                <!-- 手机号码 -->
+                <text></text>
+                <button open-type="contact"></button>
+            </view >
+            <navigator url="/pages/us/index">
+                <view class="app_info_item">关于我们</view>
+            </navigator>
+        </view>
+        <!-- 推荐 -->
+        <view class="recommend_wrap">
+            把应用推荐给其他人
+            <button open-type="share"></button>
+        </view>
+    </view>
+</view>
