@@ -17,7 +17,7 @@ App({
     userInfo: null,
 
     // 出行政策 始发地和目的地，以及二者的标识
-    city: "",               // 要更新的城市
+    address: {},               // 要更新的城市
     isFrom: false,          // 是否是始发地
     update_enable: false    // 是否更新
 

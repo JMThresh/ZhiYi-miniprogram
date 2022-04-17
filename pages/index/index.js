@@ -7,6 +7,10 @@ var QQMapWX = require("../../lib/qqmap-wx-jssdk.js");
 var qqmapsdk;
 Page({
   data: {
+    address: {
+      province: "",
+      city: ""
+    },
     city: "",                   // 用户所在城市
     endTime: "",                // 疫情数据更新时间
     countryEpidemicData: {},    // 全国疫情数据
@@ -53,19 +57,27 @@ Page({
         qqmapsdk.reverseGeocoder({
           location,
           success:(res)=>{
+            console.log(res);
             let city = res.result.ad_info.city.replace('市','');
+            let province = res.result.ad_info.province.replace('省','');
+            let address = {
+              province,
+              city
+            }
             this.setData({
+              address,
               city
             });
             // 设置city的缓存
             wx.setStorageSync("city",city);
+            wx.setStorageSync("address",address);
           },
           fail:(res)=>{
             console.log(res);
           }
         })
       }catch(err){
-        console.log(err);
+        // console.log(err);
       }
     }
   },
