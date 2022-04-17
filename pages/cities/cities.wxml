@@ -12,9 +12,9 @@
             <view class="title">{{item.title}}</view>
             <!-- 各市 -->
             <view class="city_box">
-                <navigator class="city" wx:for="{{item.cities}}" wx:key="*this" wx:for-item="item1" url="/pages/travel/travel?city_name={{item1.city}}" open-type="switchTab">
+                <view class="city" wx:for="{{item.cities}}" wx:key="*this" wx:for-item="item1" bindtap="handleBack" data-city="{{item1.city}}" >
                     {{item1.city}}
-                </navigator>
+                </view>
             </view>
         </view>
     </view>

@@ -43,25 +43,30 @@ Page({
     // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.userLocation" 这个 scope
     let authSetting = await getSetting();
     if(!authSetting['scope.userLocation']){
-      await authorize({name:'scope.userLocation'});
-      let result = await getLocation();
-      let {location} = {latitude:result.latitude,longitude:result.longitude};
-
-      // 调用接口
-      qqmapsdk.reverseGeocoder({
-        location,
-        success:(res)=>{
-          let city = res.result.ad_info.city.replace('市','');
-          this.setData({
-            city
-          });
-          // 设置city的缓存
-          wx.setStorageSync("city",city);
-        },
-        fail:(res)=>{
-          console.log(res);
-        }
-      })
+      try{
+        // 询问用户是否授予权限，拒绝则抛出异常进入catch
+        await authorize({name:'scope.userLocation'});
+        let result = await getLocation();
+        let {location} = {latitude:result.latitude,longitude:result.longitude};
+        
+        // 调用接口
+        qqmapsdk.reverseGeocoder({
+          location,
+          success:(res)=>{
+            let city = res.result.ad_info.city.replace('市','');
+            this.setData({
+              city
+            });
+            // 设置city的缓存
+            wx.setStorageSync("city",city);
+          },
+          fail:(res)=>{
+            console.log(res);
+          }
+        })
+      }catch(err){
+        console.log(err);
+      }
     }
   },
 
@@ -114,6 +119,7 @@ Page({
     })
     // 存入本地城市的疫情数据
     let {cityData} = data;
+    let city = cityData.city;
     
     // 存入本地所在省的数据
     let {provinceData} = data;
@@ -141,6 +147,7 @@ Page({
       endTime,
       citiesEpidemicData,
       cityData,
+      city,
       nearbyTopCity,
     })
   }
