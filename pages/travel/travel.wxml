@@ -7,6 +7,6 @@
       <view class="change iconfont icon-xunhuan:before" bindtap="handleExchange"></view>
       <navigator url="/pages/cities/cities?isFrom={{false}}" class="city {{to.city===''?'fontGrey':''}}">{{to.city===""?"目的地":to.city}}</navigator>
     </view>
-    <l-button  l-class="l-class" bindtap="{{handleTap}}" sizi="mini" hight="50" width="130" >查询</l-button>
+    <l-button  l-class="l-class" bindtap="handleTap" sizi="mini" hight="50" width="130" >查询</l-button>
   </view>
 </view>

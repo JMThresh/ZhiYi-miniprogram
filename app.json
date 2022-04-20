@@ -34,12 +34,6 @@
         "selectedIconPath": "icons/travel-o.png"
       },
       {
-        "pagePath": "pages/register/register",
-        "text": "登记",
-        "iconPath": "icons/register.png",
-        "selectedIconPath": "icons/register-o.png"
-      },
-      {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "icons/my.png",

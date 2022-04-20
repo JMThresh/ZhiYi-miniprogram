@@ -8,11 +8,11 @@
     <!-- 省份列表 -->
     <view class="provinces_container">
         <!-- 各省 -->
-        <view class="province" wx:for="{{cities}}" wx:key="id">
+        <view class="province" wx:for="{{addresses}}" wx:key="id">
             <view class="title">{{item.title}}</view>
             <!-- 各市 -->
             <view class="city_box">
-                <view class="city" wx:for="{{item.cities}}" wx:key="*this" wx:for-item="item1" bindtap="handleBack" data-city="{{item1.city}}" >
+                <view class="city" wx:for="{{item.cities}}" wx:key="*this" wx:for-item="item1" bindtap="handleBack" data-address="{{item1}}" >
                     {{item1.city}}
                 </view>
             </view>

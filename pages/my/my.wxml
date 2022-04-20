@@ -15,14 +15,14 @@
     <view class="user_main">
         <!-- 联系客服、意见反馈、关于我们 -->
         <view class="app_info_wrap">
-            <view class="app_info_item app_info_contact">
+            <view class="app_info_item app_info_contact" style="display: none">
                 <text>联系客服</text>
                 <!-- 手机号码 -->
                 <text></text>
                 <button open-type="contact"></button>
             </view >
             <navigator url="/pages/us/index">
-                <view class="app_info_item">关于我们</view>
+                <view class="app_info_item" style="display: none">关于我们</view>
             </navigator>
         </view>
         <!-- 推荐 -->

@@ -17,6 +17,7 @@ Page({
     citiesEpidemicData: [],     // 城市的疫情数据
     cityData: {},               // 本地城市数据
     nearbyTopCity: {},          // 附近主要城市数据(包括省)
+    image_src: "https://pic.imgdb.cn/item/625d40b4239250f7c540e50b.jpg"
   },
   // 页面第一次加载时调用
   onLoad() {

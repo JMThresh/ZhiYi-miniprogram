@@ -22,7 +22,7 @@ Page({
   onLoad(){
     // 读取本地城市缓存
     let city = wx.getStorageSync("city");
-    let address = wx.getStorageSync("address")||{};
+    let address = wx.getStorageSync("address");
     if(address){
       this.setData({
         from: address
@@ -35,8 +35,10 @@ Page({
     let {isFrom} = app.globalData;
     let {update_enable} = app.globalData;
 
+    // console.log("travel:onShow()");
+    // console.log(address);
     // console.log(isFrom);
-    // console.log(app.globalData.isFrom);
+    // console.log(update_enable);
     // 确认是否更新
     if(update_enable){
       // 判断要更新的是始发地还是目的地
@@ -46,7 +48,7 @@ Page({
           await showToast({title:"始发地和目的地不能相同！"});
         }else{
           this.setData({
-            from: address.city
+            from: address
           })
         }
       }else{  //若更新的是目的地
@@ -55,7 +57,7 @@ Page({
           await showToast({title:"目的地和始发地不能相同！"});
         }else{
           this.setData({
-            to: address.city
+            to: address
           })
         }
       }
@@ -66,6 +68,7 @@ Page({
 
 
   },
+  // 交换始发地和目的地
   handleExchange(){
     let from = this.data.to;
     let to = this.data.from;
@@ -76,11 +79,26 @@ Page({
   },
 
   async handleTap(){
+    // let params = {
+    //   url: "https://vt.sm.cn/api/QuarkGo/getHomeData",
+    //   fromp: this.data.from.province,
+    //   fromc: this.data.from.city,
+    //   top: this.data.to.province,
+    //   toc: this.data.to.city
+    // }
+    // let res = await request(params);
+    // console.log(res.data.data);
+
+
     let params = {
-      url: "https://vt.sm.cn/api/QuarkGo/getHomeData",
-      
+      url: "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5",
+      dataType: "json",
     }
     let res = await request(params);
+    let data = JSON.parse(res.data.data);
+    console.log(data);
+
+    
   }
 
 })

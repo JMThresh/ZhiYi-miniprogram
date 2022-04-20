@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cities: [],
+    addresses: [],
     isFrom: false
   },
 
@@ -26,7 +26,7 @@ Page({
     } catch (err) {
       // console.log(err);
     }
-    this.getCities();
+    this.getAddresses();
   },
 
   onShow() {
@@ -34,7 +34,7 @@ Page({
   },
 
 
-  async getCities() {
+  async getAddresses() {
     let url = "https://vt.sm.cn/api/QuarkSubscriptionCity/getAllCityV3";
     let {
       data
@@ -154,9 +154,10 @@ Page({
     //   {}
     // ]
 
-    console.log(data);
+    // console.log(data);
+    
     this.setData({
-      cities: data
+      addresses: data
     })
   },
   // 处理input输入事件
@@ -171,8 +172,8 @@ Page({
   handleBack(e) {
     // 因为switchTab不能带页面参数，故将页面相关信息存入app.js的全局变量中
     app.globalData.isFrom = this.data.isFrom;
-    app.globalData.city = e.currentTarget.dataset.city;
-    // 更新全局变量，使travel可更新
+    app.globalData.address = e.currentTarget.dataset.address;
+    // 更新全局变量，通知travel，使travel可更新
     app.globalData.update_enable = true;
 
     wx.switchTab({

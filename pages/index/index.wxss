@@ -99,6 +99,9 @@
 .numBlue {
   color: #3b45ef;
 }
+.numXXX {
+  color: #0bb571;
+}
 .numGrey {
   color: #b2b2b2;
 }

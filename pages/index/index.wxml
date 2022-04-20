@@ -1,6 +1,10 @@
 <!-- index.wxml -->
 <view class="container">
-    
+    <!-- 每日贴士 -->
+    <view class="tips_container">
+        <image class="tip" src="{{image_src}}"></image>
+        <navigator class="previous_tips" url="/pages/previous_tips/previous_tips">>>往日贴士</navigator>
+    </view>
     <!-- 疫情数据 -->
     <l-tabs bind:linchange="changeTabs" has-line="{{false}}" l-header-class="l-header-class" l-active-class="l-active-class" l-inactive-class="l-inactive-class">
         <l-tabpanel tab="全国疫情" key="one" slot="one">
@@ -23,7 +27,7 @@
                     </view>
                     <view class="tc">
                         <view class="text">高/中风险</view>
-                        <view class="number {{countryEpidemicData.danger[2]==0&&countryEpidemicData.danger[1]==0?'numGrey':'numBlue'}}">
+                        <view class="number {{countryEpidemicData.danger[2]==0&&countryEpidemicData.danger[1]==0?'numGrey':'numXXX'}}">
                             {{countryEpidemicData.danger[2]}}
                             <text class="delimiter">/</text>
                             {{countryEpidemicData.danger[1]}}
@@ -50,7 +54,7 @@
                         <view class="tc {{item.sure_new_loc==0?'numGrey':'numRed'}}">{{item.sure_new_loc}}</view>
                         <view class="tc {{item.sure_new_hid==0?'numGrey':'numOrange'}}">{{item.sure_new_hid}}</view>
                         <view class="tc {{item.present==0?'numGrey':'numBlue'}}">{{item.present}}</view>
-                        <view class="tc {{item.danger[1]+item.danger[2]==0?'numGrey':'numBlue'}}">{{item.danger[1]+item.danger[2]}}</view>
+                        <view class="tc {{item.danger[1]+item.danger[2]==0?'numGrey':'numXXX'}}">{{item.danger[1]+item.danger[2]}}</view>
                     </view>
                 </view>
             </view>
@@ -76,7 +80,7 @@
                     </view>
                     <view class="tc">
                         <view class="text">高/中风险</view>
-                        <view class="number numBlue">
+                        <view class="number numXXX">
                             {{cityData.danger[2]}}
                             <text class="delimiter">/</text>
                             {{cityData.danger[1]}}
@@ -103,7 +107,7 @@
                         <view class="tc {{item.sure_new_loc==0?'numGrey':'numRed'}}">{{item.sure_new_loc}}</view>
                         <view class="tc {{item.sure_new_hid==0?'numGrey':'numOrange'}}">{{item.sure_new_hid}}</view>
                         <view class="tc {{item.present==0?'numGrey':'numBlue'}}">{{item.present}}</view>
-                        <view class="tc {{item.danger[1]+item.danger[2]==0?'numGrey':'numBlue'}}">{{item.danger[1]+item.danger[2]}}</view>
+                        <view class="tc {{item.danger[1]+item.danger[2]==0?'numGrey':'numXXX'}}">{{item.danger[1]+item.danger[2]}}</view>
                     </view>
                 </view>
             </view>

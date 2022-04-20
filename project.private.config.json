@@ -28,6 +28,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "log",
+          "pathName": "pages/logs/logs",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
