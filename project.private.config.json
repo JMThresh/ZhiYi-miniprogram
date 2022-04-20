@@ -30,8 +30,15 @@
           "scene": null
         },
         {
-          "name": "log",
-          "pathName": "pages/logs/logs",
+          "name": "map",
+          "pathName": "pages/map/map",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "每日贴士",
+          "pathName": "pages/previous_tips/previous_tips",
           "query": "",
           "launchMode": "default",
           "scene": null

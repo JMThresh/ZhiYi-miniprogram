@@ -2,8 +2,11 @@
 <view class="container">
     <!-- 每日贴士 -->
     <view class="tips_container">
-        <image class="tip" src="{{image_src}}"></image>
-        <navigator class="previous_tips" url="/pages/previous_tips/previous_tips">>>往日贴士</navigator>
+        <!-- <view class="image_view">
+            </view> -->
+        <navigator class="image_view" url="/pages/previous_tips/previous_tips">
+            <image src="{{image_src}}" mode="widthFix"></image>
+        </navigator>
     </view>
     <!-- 疫情数据 -->
     <l-tabs bind:linchange="changeTabs" has-line="{{false}}" l-header-class="l-header-class" l-active-class="l-active-class" l-inactive-class="l-inactive-class">

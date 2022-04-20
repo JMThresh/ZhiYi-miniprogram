@@ -1,10 +1,19 @@
 .container {
+  margin-top: 20rpx;
   padding: 0rpx 20rpx;
   border-radius: 5rpx;
-  background-color: #ffffff;
+  background-color: #f3f3f3;
+}
+.container .tips_container .image_view {
+  background-color: #aaa;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
 }
 .container l-tabs .l-header-class {
   margin-top: 20rpx;
+  background-color: #f3f3f3;
 }
 .container l-tabs .l-inactive-class {
   background-color: #e6ecfc !important;
@@ -13,12 +22,13 @@
 }
 .container l-tabs .l-active-class {
   background-color: #ffffff !important;
-  border: 1rpx solid #f7f7f7;
+  border: 1rpx solid #f3f3f3;
   border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
 }
-.container l-tabs l-tabpanel {
-  background-color: #ffffff;
+.container l-tabs l-tabpanel .tab-content {
+  background-color: #fff;
+  padding: 0 15rpx;
 }
 .container l-tabs l-tabpanel .tab-content .preview {
   display: flex;

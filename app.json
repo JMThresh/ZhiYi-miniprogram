@@ -6,7 +6,8 @@
     "pages/my/my",
     "pages/cities/cities",
     "pages/travel_detail/travel_detail",
-    "pages/logs/logs"
+    "pages/map/map",
+    "pages/previous_tips/previous_tips"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,8 +35,8 @@
         "selectedIconPath": "icons/travel-o.png"
       },
       {
-        "pagePath": "pages/my/my",
-        "text": "我的",
+        "pagePath": "pages/map/map",
+        "text": "疫情地图",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my-o.png"
       }

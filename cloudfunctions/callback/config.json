@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "openapi": [
+      "customerServiceMessage.uploadTempMedia"
+    ]
+  },
+  "triggers": [
+    {
+      "name": "myTrigger",
+      "type": "timer",
+      "config": "0 0 8 */3 * * *"
+    }
+  ]
+}

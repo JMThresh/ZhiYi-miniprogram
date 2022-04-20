@@ -1,138 +1,170 @@
 .container {
-  padding: 0rpx 20rpx;
-  border-radius: 5rpx;
-  background-color: #ffffff;
-  l-tabs {
 
-    // 标签栏整体样式
-    .l-header-class{
-      margin-top: 20rpx;
-    }
+    margin-top: 20rpx;
+    padding: 0rpx 20rpx;
+    border-radius: 5rpx;
+    background-color: #f3f3f3;
 
-    // 标签栏默认状态样式
-    .l-inactive-class{
-      background-color: #e6ecfc !important;
-      border-top-left-radius: 25rpx;
-      border-top-right-radius: 25rpx;
-    }
+    .tips_container {
 
-    // 标签内容样式
-    .l-content-class{
-      // color: #999;
-    }
+        .image_view{
 
-    // 标签页样式
-    .l-content-class{
-      // background-color: #e5c06c;
-    }
-
-    // 标签栏装饰线的样式
-    .l-line-class{
-    }
-
-    // 标签页激活样式
-    .l-active-class{
-      background-color: #ffffff !important;
-      border: 1rpx solid #f7f7f7;
-      border-top-left-radius: 25rpx;
-      border-top-right-radius: 25rpx;
-      
-    }
-
-    l-tabpanel {
-      background-color: #ffffff;
-      .tab-content {
-        
-        // 过去疫情数据总览
-        .preview {
-          display: flex;
-          padding: 10rpx;
-          border: 1px solid #ddd;
-          border-radius: 10rpx;
-          margin-top: 10rpx;
-
-          .tc {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-
-            .text{
-              font-size: 27rpx;
-              font-weight: bold;
-            }
-            .number {
-              font-size: 31rpx;
-              font-weight: bold;
-              .delimiter{
-                color: #bbb;
-              }
-            }
-          }
+            background-color: #aaa;
+            width: 100%;
+            height: 400rpx;
+            overflow: hidden;
+            border-radius: 15rpx;
         }
 
-        // 数据更新时间文本
-        .time {
-          margin-top: 10rpx;
+        .tip {}
 
-          .dataSourceTime {
-            font-size: 20rpx;
-            color: #999;
-            text-align: left;
-            line-height: 50rpx;
-            // border: 1px solid #ff6f03;
-          }
-        }
-        // 各城市的疫情列表
-        .alldata {
-          margin-top: 10rpx;
-          // 数据循环 每一行
-          .tr {
-            display: flex;
-            border-bottom: 1rpx #f6f6f6 solid;
-            padding: 13rpx 10rpx;
-            margin-top: 2rpx;
-
-            // 每一项
-            .tc {
-              flex: 2;
-
-              text-align: center;
-              justify-content: center;
-              font-weight: bold;
-              .province_show{
-                border: 1rpx solid #ddd;
-                border-radius: 8rpx;
-                margin-left: 10rpx;
-                padding: 0 3rpx;
-                font-weight: normal;
-                color: #666;
-              }
-              .province_hide{
-                display: none;
-              }
-            }
-            // 表头独有样式
-            .th{
-              font-weight: normal;
-            }
-            // 城市列表样式
-            .city {
-              flex: 3;
-              text-align: left;
-              text-overflow: hidden;
-              // width: 40rpx;
-            }
-            
-          }
-          // 灰色背景
-          .bgc{
-            background-color: #fdf7f7;
-          }
-        }
-      }
+        .previous_tips {}
     }
-  }
+
+
+    l-tabs {
+
+        // 标签栏整体样式
+        .l-header-class {
+            margin-top: 20rpx;
+            background-color: #f3f3f3;
+        }
+
+        // 标签栏默认状态样式
+        .l-inactive-class {
+            background-color: #e6ecfc !important;
+            border-top-left-radius: 25rpx;
+            border-top-right-radius: 25rpx;
+        }
+
+        // 标签内容样式
+        .l-content-class {
+            // color: #999;
+        }
+
+        // 标签页样式
+        .l-content-class {
+            // background-color: #e5c06c;
+        }
+
+        // 标签栏装饰线的样式
+        .l-line-class {}
+
+        // 标签页激活样式
+        .l-active-class {
+            background-color: #ffffff !important;
+            border: 1rpx solid #f3f3f3;
+            border-top-left-radius: 25rpx;
+            border-top-right-radius: 25rpx;
+
+        }
+
+        l-tabpanel {
+
+            .tab-content {
+                
+                background-color: #fff;
+                padding: 0 15rpx;
+
+                // 过去疫情数据总览
+                .preview {
+                    display: flex;
+                    padding: 10rpx;
+                    border: 1px solid #ddd;
+                    border-radius: 10rpx;
+                    margin-top: 10rpx;
+
+                    .tc {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+
+                        .text {
+                            font-size: 27rpx;
+                            font-weight: bold;
+                        }
+
+                        .number {
+                            font-size: 31rpx;
+                            font-weight: bold;
+
+                            .delimiter {
+                                color: #bbb;
+                            }
+                        }
+                    }
+                }
+
+                // 数据更新时间文本
+                .time {
+                    margin-top: 10rpx;
+
+                    .dataSourceTime {
+                        font-size: 20rpx;
+                        color: #999;
+                        text-align: left;
+                        line-height: 50rpx;
+                        // border: 1px solid #ff6f03;
+                    }
+                }
+
+                // 各城市的疫情列表
+                .alldata {
+                    margin-top: 10rpx;
+
+                    // 数据循环 每一行
+                    .tr {
+                        display: flex;
+                        border-bottom: 1rpx #f6f6f6 solid;
+                        padding: 13rpx 10rpx;
+                        margin-top: 2rpx;
+
+                        // 每一项
+                        .tc {
+                            flex: 2;
+
+                            text-align: center;
+                            justify-content: center;
+                            font-weight: bold;
+
+                            .province_show {
+                                border: 1rpx solid #ddd;
+                                border-radius: 8rpx;
+                                margin-left: 10rpx;
+                                padding: 0 3rpx;
+                                font-weight: normal;
+                                color: #666;
+                            }
+
+                            .province_hide {
+                                display: none;
+                            }
+                        }
+
+                        // 表头独有样式
+                        .th {
+                            font-weight: normal;
+                        }
+
+                        // 城市列表样式
+                        .city {
+                            flex: 3;
+                            text-align: left;
+                            text-overflow: hidden;
+                            // width: 40rpx;
+                        }
+
+                    }
+
+                    // 灰色背景
+                    .bgc {
+                        background-color: #fdf7f7;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -140,21 +172,21 @@
 
 // 数字颜色
 .numRed {
-  color: #d00d0c;
+    color: #d00d0c;
 }
 
 .numOrange {
-  color: #ff6f03;
+    color: #ff6f03;
 }
 
-.numBlue{
-  color: #3b45ef;
+.numBlue {
+    color: #3b45ef;
 }
 
-.numXXX{
-  color: #0bb571;
+.numXXX {
+    color: #0bb571;
 }
 
-.numGrey{
-  color: #b2b2b2;
+.numGrey {
+    color: #b2b2b2;
 }

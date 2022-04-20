@@ -1,0 +1,13 @@
+<!--pages/notice/index.wxml-->
+<view class="article_wrap">
+    <navigator url="/pages/article/index?link={{item.link}}" wx:for="{{list}}" wx:key="_id">
+        <view class="left_content">
+            <view class="title">{{item.title}}</view>
+            <view class="dscri">{{item.note}}</view>
+            <view class="time">{{item.time}}</view>
+        </view>
+        <view class="{{item.image_src!==''?'right_content':'hidden'}}">
+            <image src="{{item.image_src}}" mode="aspectFill" />
+        </view>
+    </navigator>
+</view>

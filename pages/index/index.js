@@ -5,6 +5,7 @@ import { getSetting, authorize, getLocation } from "../../utils/asyncWx";
 const app = getApp()
 var QQMapWX = require("../../lib/qqmap-wx-jssdk.js");
 var qqmapsdk;
+
 Page({
   data: {
     address: {
