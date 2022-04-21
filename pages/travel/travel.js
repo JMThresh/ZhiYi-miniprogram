@@ -16,7 +16,8 @@ Page({
     to: {
       province:"",
       city:""
-    }
+    },
+    policy: []
   },
 
   onLoad(){
@@ -35,10 +36,6 @@ Page({
     let {isFrom} = app.globalData;
     let {update_enable} = app.globalData;
 
-    // console.log("travel:onShow()");
-    // console.log(address);
-    // console.log(isFrom);
-    // console.log(update_enable);
     // 确认是否更新
     if(update_enable){
       // 判断要更新的是始发地还是目的地
@@ -78,27 +75,49 @@ Page({
     })
   },
 
+  // 处理点击查询事件
   async handleTap(){
-    // let params = {
-    //   url: "https://vt.sm.cn/api/QuarkGo/getHomeData",
-    //   fromp: this.data.from.province,
-    //   fromc: this.data.from.city,
-    //   top: this.data.to.province,
-    //   toc: this.data.to.city
-    // }
-    // let res = await request(params);
-    // console.log(res.data.data);
+    // 如果始发地或者目的地为空则提示用户
+    if(this.data.from.city === "" || this.data.to.city === ""){
+      console.log("false");
+      await showToast({title: "必须填写始发地或目的地！"});
+    }else{
+      console.log("true");
+      let params = {
+        fromp: this.data.from.province,
+        fromc: this.data.from.city,
+        top: this.data.to.province,
+        toc: this.data.to.city
+      }
+      let res = await request({url: "https://vt.sm.cn/api/QuarkGo/getHomeData", data: params});
+      let policy = [];
+      if(res){
+        let data = res.data.data;
+        data.from.title = "离开" + data.from.city;
+        data.from.time = "数据来源：" + data.from.rule.out_policy_resource + " | 更新时间：" + data.from.rule.out_policy_date;
+        data.to.time = "数据来源：" + data.to.rule.out_policy_resource + " | 更新时间：" + data.to.rule.out_policy_date;
+        data.to.title = "进入" + data.to.city;
+        policy.push(data.from);
+        policy.push(data.to);
+        console.log(data);
 
-
-    let params = {
-      url: "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5",
-      dataType: "json",
+        this.setData({
+          policy
+        })
+      }
     }
-    let res = await request(params);
-    let data = JSON.parse(res.data.data);
-    console.log(data);
 
     
+
+
+
+    // let params = {
+    //   url: "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5",
+    //   dataType: "json",
+    // }
+    // let res = await request(params);
+    // let data = JSON.parse(res.data.data);
+    // console.log(data);
   }
 
 })

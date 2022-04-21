@@ -15,7 +15,7 @@
   margin-right: 30rpx;
 }
 .article_wrap navigator .left_content .title {
-  font-size: 32rpx;
+  font-size: 36rpx;
   color: #353535;
 }
 .article_wrap navigator .left_content .dscri {
@@ -23,7 +23,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 10;
-  color: #a8a8a8;
+  color: #333333;
   margin-top: 10rpx;
 }
 .article_wrap navigator .left_content .time {

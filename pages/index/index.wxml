@@ -9,7 +9,7 @@
         </navigator>
     </view>
     <!-- 疫情数据 -->
-    <l-tabs bind:linchange="changeTabs" has-line="{{false}}" l-header-class="l-header-class" l-active-class="l-active-class" l-inactive-class="l-inactive-class">
+    <l-tabs bind:linchange="changeTabs" has-line="{{false}}" l-header-class="l-header-class" l-active-class="l-active-class" l-inactive-class="l-inactive-class" l-tabpanel-class="l-tabpanel-class" l-header-line-class="l-header-line-class">
         <l-tabpanel tab="全国疫情" key="one" slot="one">
             <view class="tab-content">
                 <!-- 过去疫情数据总览 -->

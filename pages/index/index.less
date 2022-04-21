@@ -3,7 +3,6 @@
     margin-top: 20rpx;
     padding: 0rpx 20rpx;
     border-radius: 5rpx;
-    background-color: #f3f3f3;
 
     .tips_container {
 
@@ -27,7 +26,7 @@
         // 标签栏整体样式
         .l-header-class {
             margin-top: 20rpx;
-            background-color: #f3f3f3;
+            border-bottom: 1rpx solid #fff;
         }
 
         // 标签栏默认状态样式
@@ -48,15 +47,21 @@
         }
 
         // 标签栏装饰线的样式
-        .l-line-class {}
+        .l-line-class {
+            color: #fff;
+        }
 
         // 标签页激活样式
         .l-active-class {
             background-color: #ffffff !important;
-            border: 1rpx solid #f3f3f3;
             border-top-left-radius: 25rpx;
             border-top-right-radius: 25rpx;
 
+        }
+
+        // 面板内容样式
+        .l-tabpanel-class{
+            border-top: 1rpx solid #fff;
         }
 
         l-tabpanel {
@@ -65,6 +70,7 @@
                 
                 background-color: #fff;
                 padding: 0 15rpx;
+                padding-top: 16rpx;
 
                 // 过去疫情数据总览
                 .preview {
@@ -72,7 +78,7 @@
                     padding: 10rpx;
                     border: 1px solid #ddd;
                     border-radius: 10rpx;
-                    margin-top: 10rpx;
+                    padding-top: 10rpx;
 
                     .tc {
                         flex: 1;

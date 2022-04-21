@@ -18,7 +18,7 @@ Page({
     citiesEpidemicData: [],     // 城市的疫情数据
     cityData: {},               // 本地城市数据
     nearbyTopCity: {},          // 附近主要城市数据(包括省)
-    image_src: "https://pic.imgdb.cn/item/625d40b4239250f7c540e50b.jpg"
+    image_src: ""
   },
   // 页面第一次加载时调用
   onLoad() {
@@ -36,7 +36,18 @@ Page({
         city
       })
     }
-    // this.getEpidemicInformation();
+
+    // 判断有没有image的缓存
+    let image_src = wx.getStorageSync("indexImage");
+    if(!image_src){
+      this.setIndexImage();
+    }else{
+      this.setData({
+        image_src
+      })
+    }
+
+
   },
 
   // 显示页面就调用
@@ -164,6 +175,29 @@ Page({
       city,
       nearbyTopCity,
     })
+  },
+
+  // 获取首页图片链接
+  setIndexImage(){
+    // 从云端获取首页图片链接
+    wx.cloud.callFunction({
+      name: 'zy-dbase',
+      data: {
+        action: 'indexImage'
+      }
+    }).then(res => {
+      console.log(res);
+      let image_src = res.result.data[0].image_src;
+      wx.setStorageSync('indexImage',image_src);
+      this.setData({
+        image_src
+      })
+    })
   }
 
 })
+
+// {
+//   name : "zy_indexImage",
+//   image_src: "https://pic.imgdb.cn/item/625d40b4239250f7c540e50b.jpg"
+// }

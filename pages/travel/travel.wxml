@@ -1,3 +1,5 @@
+<!-- 引入过滤工具 -->
+<wxs src="../../utils/filter.wxs" module="tools" /> 
 <view class="container">
   <!-- 出行政策 -->
   <view class="travel_strategy">
@@ -8,5 +10,31 @@
       <navigator url="/pages/cities/cities?isFrom={{false}}" class="city {{to.city===''?'fontGrey':''}}">{{to.city===""?"目的地":to.city}}</navigator>
     </view>
     <l-button  l-class="l-class" bindtap="handleTap" sizi="mini" hight="50" width="130" >查询</l-button>
+  </view>
+
+  <view class="policy_nothing" wx:if="{{policy.length==0}}">选择始发地和目的地，再点击查询即可获取相关出行政策。</view>
+
+  <!-- 出行信息 -->
+  <view class="travel-policy-container">
+    <view class="travel-policy" wx:for="{{policy}}" wx:key="*this">
+      <!-- 离开地的相关政策 -->
+      <view class="single-container" >
+        <!-- 标题   从哪到哪 -->
+        <view class="title-container">
+          <!--  -->
+          <view class="iconfont icon-weizhi:before" style="color: --themeColor"></view>
+          <view class="title-text">{{item.title}}</view>
+        </view>
+        <view class="policy-container">
+          <view class="policy-text">
+            <!-- "一、封控区实行“区域封闭、足不出户、服务上门”的管控政策，所有居民严格落实居家隔离措施。<br/><br/>二、管控区实行“人不出区、严禁聚集”的管控政策，所有居民原则上居家。对因就医等确需外出人员，须报社区且由社区安排专车，全程做好个人防护，落实闭环管理。<br/><br/>三、防范区实行“强化社会面管控、严格限制人员聚集”的管控政策。防范区内人员原则上非必要不离开本区域，如因就医、特定公务等确需出入的，须经社区（村）审批备案，持24小时内核酸检测阴性证明出行。<br/><br/>四、封控、管控和防范区以外的居民非必要不离连，确需离连，须持24小时核酸检测阴性报告离连" -->
+            <text decode="{{true}}">{{tools.BR_Filter(item.rule.out_policy)}}</text>
+            <!-- {{item.rule.out_policy}} -->
+          </view>
+        </view>
+        <view class="time">{{item.time}}</view>
+      </view>
+    </view>
+
   </view>
 </view>

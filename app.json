@@ -37,8 +37,8 @@
       {
         "pagePath": "pages/map/map",
         "text": "疫情地图",
-        "iconPath": "icons/my.png",
-        "selectedIconPath": "icons/my-o.png"
+        "iconPath": "icons/map.png",
+        "selectedIconPath": "icons/map-o.png"
       }
     ]
   },

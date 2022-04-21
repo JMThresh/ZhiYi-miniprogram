@@ -26,7 +26,7 @@ page{
   padding: 0;
   font-size: 28rpx;
   /* background-color: #f4f6fa; */
-  background-color: #fff;
+  background-color: #f3f3f3;
 }
 image{
   /* 使所有图片都占据100%容器宽度 */
