@@ -4,7 +4,7 @@
     <view class="tips_container">
         <!-- <view class="image_view">
             </view> -->
-        <navigator class="image_view" url="/pages/previous_tips/previous_tips">
+        <navigator class="image_view" url="/pages/tip_detail/tip_detail?id={{id}}">
             <image src="{{image_src}}" mode="widthFix"></image>
         </navigator>
     </view>

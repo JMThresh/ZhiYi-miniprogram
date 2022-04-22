@@ -108,7 +108,7 @@ Page({
               });
               break;
             default:
-              console(k+"不会还有吧？");
+              console.log(k+"不会还有吧？");
           }
         })
       }else{

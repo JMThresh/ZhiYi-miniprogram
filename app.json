@@ -7,7 +7,8 @@
     "pages/cities/cities",
     "pages/travel_detail/travel_detail",
     "pages/map/map",
-    "pages/previous_tips/previous_tips"
+    "pages/previous_tips/previous_tips",
+    "pages/tip_detail/tip_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,8 +26,8 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home-o.png"
+        "iconPath": "icons/shield.png",
+        "selectedIconPath": "icons/shield-o.png"
       },
       {
         "pagePath": "pages/travel/travel",

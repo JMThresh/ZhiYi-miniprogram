@@ -37,7 +37,14 @@
           "scene": null
         },
         {
-          "name": "每日贴士",
+          "name": "每日贴士细节 id=2",
+          "pathName": "pages/tip_detail/tip_detail",
+          "query": "id=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "往日贴士",
           "pathName": "pages/previous_tips/previous_tips",
           "query": "",
           "launchMode": "default",

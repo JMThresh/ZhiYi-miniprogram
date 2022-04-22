@@ -1,0 +1,19 @@
+<wxs src="../../utils/filter.wxs" module="tools" /> 
+<view class="container">
+    <view class="today_tip">今日贴士</view>
+    <view class="info_container">
+        <image class="info-bg" mode="widthFix" src="{{bgImage}}" />
+        <view class="title_info">
+            <view class="title">{{tip.title}}</view>
+            <text class="info" decode="{{true}}" space="emsp" use-selcet="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tools.N_Filter(tip.note)}}</text>
+            <view class="time_wrap">
+                <text class="time">{{tip.time}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="previous_tips">
+        <navigator url="/pages/previous_tips/previous_tips">
+            <text class="button">>> 往日贴士</text>
+        </navigator>
+    </view>
+</view>

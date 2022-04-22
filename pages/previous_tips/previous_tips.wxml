@@ -4,13 +4,13 @@
 <wxs src="../../utils/filter.wxs" module="tools" /> 
 
 <view class="article_wrap">
-    <navigator url="/pages/article/index?link={{item.link}}" wx:for="{{list}}" wx:key="_id">
+    <navigator url="/pages/tip_detail/tip_detail?id={{item.id}}" wx:for="{{list}}" wx:key="_id">
         <view class="left_content">
             <view class="title">
                 <text decode="{{true}}" space="emsp">{{item.title}}</text>
             </view>
             <view class="dscri">
-                <text decode="{{true}}" space="emsp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tools.N_Filter(item.note)}}</text>
+                <text decode="{{true}}" space="emsp" use-select="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tools.N_Filter(item.note)}}</text>
             </view>
             <view class="time">
                 <text decode="{{true}}">{{item.time}}</text>

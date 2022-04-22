@@ -19,6 +19,13 @@ async function initChart(canvas, width, height, dpr) {
   echarts.registerMap('china', geoJson);
 
   const option = {
+    title: {
+      text: '中国疫情地图',
+      subtext: 'data from 腾讯新闻',
+      sublink: 'https://news.qq.com/zt2020/page/feiyan.htm#/',
+      left: 'center',
+      top: 40
+    },
     tooltip: {
       trigger: "item",
       formatter: function (obj) {
@@ -43,7 +50,7 @@ async function initChart(canvas, width, height, dpr) {
       min: 0,
       max: 34000,
       // splitNumber: 5,
-      top: "top",
+      top: 40,
       pieces: [{
           min: 5001
         }, // 不指定 max，表示 max 为无限大（Infinity）。
@@ -172,7 +179,7 @@ async function getData() {
       province.forEach(v => {
         newArr.push({
           name: v.name,
-          value: v.total.confirm
+          value: v.total.nowConfirm
         })
       });
       // console.log(newArr);

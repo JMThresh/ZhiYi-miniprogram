@@ -18,7 +18,8 @@ Page({
     citiesEpidemicData: [],     // 城市的疫情数据
     cityData: {},               // 本地城市数据
     nearbyTopCity: {},          // 附近主要城市数据(包括省)
-    image_src: ""
+    image_src: "https://pic.imgdb.cn/item/625d40b4239250f7c540e50b.jpg",
+    id: null                      // 今日贴士的链接跳转id
   },
   // 页面第一次加载时调用
   onLoad() {
@@ -37,15 +38,8 @@ Page({
       })
     }
 
-    // 判断有没有image的缓存
-    let image_src = wx.getStorageSync("indexImage");
-    if(!image_src){
-      this.setIndexImage();
-    }else{
-      this.setData({
-        image_src
-      })
-    }
+    // 获取id和tips  并缓存tips
+    this.setListAndID();
 
 
   },
@@ -177,20 +171,21 @@ Page({
     })
   },
 
-  // 获取首页图片链接
-  setIndexImage(){
-    // 从云端获取首页图片链接
+  // 获取tips及最新的tip的id
+  setListAndID(){
     wx.cloud.callFunction({
       name: 'zy-dbase',
       data: {
-        action: 'indexImage'
+        action: 'dailyTips'
       }
     }).then(res => {
-      console.log(res);
-      let image_src = res.result.data[0].image_src;
-      wx.setStorageSync('indexImage',image_src);
+      // console.log(res);
+      let tips = res.result.data;
+      let id = tips[0].id;
+      // 设置往日贴士的缓存
+      wx.setStorageSync('tips', tips);
       this.setData({
-        image_src
+        id
       })
     })
   }

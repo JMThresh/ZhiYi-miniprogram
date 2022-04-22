@@ -1,0 +1,45 @@
+.container {
+  margin: 0 20rpx;
+}
+.container .today_tip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60rpx;
+  padding: 30rpx 0;
+}
+.container .info_container {
+  position: relative;
+}
+.container .info_container .title_info {
+  position: absolute;
+  top: 0;
+  margin: 40rpx;
+  margin-right: 150rpx;
+  color: #9cdcfe;
+}
+.container .info_container .title_info .title {
+  font-size: 45rpx;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  font-weight: bold;
+  border-bottom: 5rpx solid #f7fefd;
+}
+.container .info_container .title_info .info {
+  font-size: 30rpx;
+  line-height: 70rpx;
+}
+.container .info_container .title_info .time_wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+.container .previous_tips {
+  display: flex;
+  justify-content: flex-end;
+}
+.container .previous_tips .button {
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
