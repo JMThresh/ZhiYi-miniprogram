@@ -1,0 +1,34 @@
+<!-- pages/notice/index.wxml -->
+
+<!-- 将云数据库里的数据中的\n转换为可识别的\n -->
+<wxs src="../../utils/filter.wxs" module="tools" /> 
+
+<view class="article_wrap">
+    <navigator url="/pages/article/index?link={{item.link}}" wx:for="{{list}}" wx:key="_id">
+        <view class="left_content">
+            <view class="title">
+                <text decode="{{true}}" space="emsp">{{item.title}}</text>
+            </view>
+            <view class="dscri">
+                <text decode="{{true}}" space="emsp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tools.N_Filter(item.note)}}</text>
+            </view>
+            <view class="time">
+                <text decode="{{true}}">{{item.time}}</text>
+            </view>
+        </view>
+        <view class="{{item.image_src!==''?'right_content':'hidden'}}">
+            <image src="{{item.image_src}}" mode="aspectFill" />
+        </view>
+    </navigator>
+    <!-- <navigator url="/pages/article/inde">
+        <view class="left_content">
+            <view class="title">
+                <text decode="{{true}}">口罩的知识</text>
+            </view>
+            <view class="dscri">
+                <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;医用外科口罩用于由临床医务人员在有创操作等过程中所佩戴的一次性口罩，能覆盖使用者的口、鼻等，为防止病原体微生物、体液、颗粒物等的直接透过提供物理屏障。\n（悄悄告诉你，连续佩戴8小时以上的口罩，防护能力会减弱，快检查一下自己的口罩是否要更换哦！）</text>
+            </view>
+            <view class="time">2022-4-21</view>
+        </view>
+    </navigator> -->
+</view>

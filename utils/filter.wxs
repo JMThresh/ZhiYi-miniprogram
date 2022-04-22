@@ -1,0 +1,23 @@
+var N_Filter = function (text) {
+  if (text) {
+    // console.log(text);
+    var pattern = "\\\\n";
+    var target = "\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    var reg = getRegExp(pattern, "g");
+    return text.replace(reg, target);
+  }
+}
+var BR_Filter = function (text) {
+  if (text) {
+    console.log(text);
+    var pattern = "<br/>";
+    var target = "\n";
+    var reg = getRegExp(pattern, "g");
+    console.log(text.replace(reg,target));
+    return text.replace(reg, target);
+  }
+}
+module.exports = {
+  N_Filter: N_Filter,
+  BR_Filter: BR_Filter
+} //暴露接口

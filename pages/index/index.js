@@ -5,14 +5,20 @@ import { getSetting, authorize, getLocation } from "../../utils/asyncWx";
 const app = getApp()
 var QQMapWX = require("../../lib/qqmap-wx-jssdk.js");
 var qqmapsdk;
+
 Page({
   data: {
+    address: {
+      province: "",
+      city: ""
+    },
     city: "",                   // 用户所在城市
     endTime: "",                // 疫情数据更新时间
     countryEpidemicData: {},    // 全国疫情数据
     citiesEpidemicData: [],     // 城市的疫情数据
     cityData: {},               // 本地城市数据
     nearbyTopCity: {},          // 附近主要城市数据(包括省)
+    image_src: ""
   },
   // 页面第一次加载时调用
   onLoad() {
@@ -30,7 +36,18 @@ Page({
         city
       })
     }
-    // this.getEpidemicInformation();
+
+    // 判断有没有image的缓存
+    let image_src = wx.getStorageSync("indexImage");
+    if(!image_src){
+      this.setIndexImage();
+    }else{
+      this.setData({
+        image_src
+      })
+    }
+
+
   },
 
   // 显示页面就调用
@@ -43,25 +60,38 @@ Page({
     // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.userLocation" 这个 scope
     let authSetting = await getSetting();
     if(!authSetting['scope.userLocation']){
-      await authorize({name:'scope.userLocation'});
-      let result = await getLocation();
-      let {location} = {latitude:result.latitude,longitude:result.longitude};
-
-      // 调用接口
-      qqmapsdk.reverseGeocoder({
-        location,
-        success:(res)=>{
-          let city = res.result.ad_info.city.replace('市','');
-          this.setData({
-            city
-          });
-          // 设置city的缓存
-          wx.setStorageSync("city",city);
-        },
-        fail:(res)=>{
-          console.log(res);
-        }
-      })
+      try{
+        // 询问用户是否授予权限，拒绝则抛出异常进入catch
+        await authorize({name:'scope.userLocation'});
+        let result = await getLocation();
+        let {location} = {latitude:result.latitude,longitude:result.longitude};
+        
+        // 调用接口
+        qqmapsdk.reverseGeocoder({
+          location,
+          success:(res)=>{
+            console.log(res);
+            let city = res.result.ad_info.city.replace('市','');
+            let province = res.result.ad_info.province.replace('省','');
+            let address = {
+              province,
+              city
+            }
+            this.setData({
+              address,
+              city
+            });
+            // 设置city的缓存
+            wx.setStorageSync("city",city);
+            wx.setStorageSync("address",address);
+          },
+          fail:(res)=>{
+            console.log(res);
+          }
+        })
+      }catch(err){
+        // console.log(err);
+      }
     }
   },
 
@@ -114,6 +144,7 @@ Page({
     })
     // 存入本地城市的疫情数据
     let {cityData} = data;
+    let city = cityData.city;
     
     // 存入本地所在省的数据
     let {provinceData} = data;
@@ -141,8 +172,32 @@ Page({
       endTime,
       citiesEpidemicData,
       cityData,
+      city,
       nearbyTopCity,
+    })
+  },
+
+  // 获取首页图片链接
+  setIndexImage(){
+    // 从云端获取首页图片链接
+    wx.cloud.callFunction({
+      name: 'zy-dbase',
+      data: {
+        action: 'indexImage'
+      }
+    }).then(res => {
+      console.log(res);
+      let image_src = res.result.data[0].image_src;
+      wx.setStorageSync('indexImage',image_src);
+      this.setData({
+        image_src
+      })
     })
   }
 
 })
+
+// {
+//   name : "zy_indexImage",
+//   image_src: "https://pic.imgdb.cn/item/625d40b4239250f7c540e50b.jpg"
+// }

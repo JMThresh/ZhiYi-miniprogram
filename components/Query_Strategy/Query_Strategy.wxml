@@ -1,0 +1,12 @@
+<view class="container">
+  <!-- 出行政策 -->
+  <view class="travel_strategy">
+    <view class="txt">出行政策</view>
+    <view class="from_to_container">
+      <navigator url="/pages/cities/cities?isFrom={{true}}" class="city {{from.city===''?'fontGrey':''}}">{{from.city===""?"始发地":from.city}}</navigator>
+      <view class="change iconfont icon-xunhuan:before" bindtap="handleExchange"></view>
+      <navigator url="/pages/cities/cities?isFrom={{false}}" class="city {{to.city===''?'fontGrey':''}}">{{to.city===""?"目的地":to.city}}</navigator>
+    </view>
+    <l-button  l-class="l-class" bindtap="{{handleTap}}" sizi="mini" hight="50" width="130" >查询</l-button>
+  </view>
+</view>

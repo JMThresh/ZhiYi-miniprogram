@@ -1,0 +1,84 @@
+.container {
+  padding: 30rpx;
+  height: 100%;
+}
+.container .travel_strategy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx;
+  height: 10vh;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.container .travel_strategy .txt {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  font-family: "STZhongsong";
+  font-size: 35rpx;
+}
+.container .travel_strategy .from_to_container {
+  flex: 2;
+  display: flex;
+  background-color: #f4f4f4;
+  margin: 0  20rpx 0 10rpx;
+  height: 70rpx;
+  border-radius: 20rpx;
+}
+.container .travel_strategy .from_to_container .city {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.container .travel_strategy .from_to_container .change {
+  flex: 1;
+  font-size: 40rpx;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .travel_strategy .from_to_container .fontGrey {
+  color: #9b9999;
+}
+.container .travel_strategy .l-class {
+  border-radius: 20rpx;
+  font-size: 40rpx;
+}
+.container .policy_nothing {
+  margin-top: 40rpx;
+  height: 90vh;
+  font-size: 35rpx;
+}
+.container .travel-policy-container .travel-policy {
+  margin-top: 30rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.container .travel-policy-container .travel-policy .single-container .title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.container .travel-policy-container .travel-policy .single-container .title-container .icon-weizhi:before {
+  font-size: 40rpx;
+  color: #4caf50;
+}
+.container .travel-policy-container .travel-policy .single-container .title-container .title-text {
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.container .travel-policy-container .travel-policy .single-container .policy-container .policy-text {
+  font-size: 28rpx;
+}
+.container .travel-policy-container .travel-policy .single-container .time {
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  color: #999;
+  text-align: left;
+}

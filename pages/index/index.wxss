@@ -1,31 +1,46 @@
 .container {
+  margin-top: 20rpx;
   padding: 0rpx 20rpx;
   border-radius: 5rpx;
-  background-color: #ffffff;
+}
+.container .tips_container .image_view {
+  background-color: #aaa;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
 }
 .container l-tabs .l-header-class {
   margin-top: 20rpx;
+  border-bottom: 1rpx solid #fff;
 }
 .container l-tabs .l-inactive-class {
   background-color: #e6ecfc !important;
   border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
 }
+.container l-tabs .l-line-class {
+  color: #fff;
+}
 .container l-tabs .l-active-class {
   background-color: #ffffff !important;
-  border: 1rpx solid #f7f7f7;
   border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
 }
-.container l-tabs l-tabpanel {
-  background-color: #ffffff;
+.container l-tabs .l-tabpanel-class {
+  border-top: 1rpx solid #fff;
+}
+.container l-tabs l-tabpanel .tab-content {
+  background-color: #fff;
+  padding: 0 15rpx;
+  padding-top: 16rpx;
 }
 .container l-tabs l-tabpanel .tab-content .preview {
   display: flex;
   padding: 10rpx;
   border: 1px solid #ddd;
   border-radius: 10rpx;
-  margin-top: 10rpx;
+  padding-top: 10rpx;
 }
 .container l-tabs l-tabpanel .tab-content .preview .tc {
   flex: 1;
@@ -98,4 +113,10 @@
 }
 .numBlue {
   color: #3b45ef;
+}
+.numXXX {
+  color: #0bb571;
+}
+.numGrey {
+  color: #b2b2b2;
 }

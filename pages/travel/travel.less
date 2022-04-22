@@ -1,7 +1,117 @@
 .container {
-    tabs {
-      .tab-content {
-  
+  padding: 30rpx;
+  height: 100%;
+
+  .travel_strategy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30rpx;
+    height: 10vh;
+    background-color: #fff;
+    border-radius: 20rpx;
+
+    .txt {
+      flex: 1;
+      // background-color: red;
+      text-align: center;
+      font-weight: bold;
+      font-family: "STZhongsong";
+      font-size: 35rpx;
+    }
+
+    .from_to_container {
+      flex: 2;
+      display: flex;
+      background-color: #f4f4f4;
+      margin: 0  20rpx 0 10rpx;
+      height: 70rpx;
+      border-radius: 20rpx;
+      
+
+      .city {
+        flex: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32rpx;
+        font-weight: bold;
+      }
+      
+      .change{
+        flex: 1;
+        font-size: 40rpx;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .fontGrey{
+        color:#9b9999;
+      }
+    
+    }
+
+    .l-class {
+      // background-color: blue;
+      // flex: 1;
+      border-radius: 20rpx;
+      font-size: 40rpx;
+    }
+  }
+
+  .policy_nothing{
+    margin-top: 40rpx;
+    height: 90vh;
+    font-size: 35rpx;
+  }
+
+  .travel-policy-container{
+
+    .travel-policy {
+      margin-top: 30rpx;
+      padding: 30rpx;
+      background-color: #fff;
+      border-radius: 20rpx;
+    
+      .single-container {
+         
+    
+        .title-container {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20rpx;
+    
+          .icon-weizhi:before {
+            font-size: 40rpx;
+            color: #4caf50;
+          }
+    
+          .title-text {
+            font-size: 35rpx;
+            font-weight: bold;
+          }
+        }
+    
+        .policy-container {
+          .policy-text {
+            font-size: 28rpx;
+    
+            text {
+    
+            }
+          }
+        }
+    
+        .time {
+          margin-top: 20rpx;
+          font-size: 25rpx;
+          color: #999;
+          text-align: left;
+        }
       }
     }
   }
+
+}
