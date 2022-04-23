@@ -3,7 +3,6 @@
     "l-button":"../../miniprogram_npm/lin-ui/button/index",
     "l-search-bar":"../../miniprogram_npm/lin-ui/search-bar/index",
     "l-tabs":"../../miniprogram_npm/lin-ui/tabs",
-    "l-tabpanel":"../../miniprogram_npm/lin-ui/tabpanel",
-    "Tabs":"../../components/Tabs/Tabs"
+    "l-tabpanel":"../../miniprogram_npm/lin-ui/tabpanel"
   }
 }
