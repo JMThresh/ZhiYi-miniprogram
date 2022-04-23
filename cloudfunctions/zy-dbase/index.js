@@ -12,14 +12,11 @@ exports.main = async (event, context) => {
     case "styles": {
       return getStyles(event)
     }
-    case "swiperList": {
-      return getSwiperList(event)
+    case "dailyTips": {
+      return getDailyTips(event)
     }
-    case "indexTabs": {
-      return getIndexTabs(event)
-    }
-    case "noticeList": {
-      return getNoticeList(event)
+    case "indexImage": {
+      return getIndexImage(event)
     }
     default:{
       return
@@ -27,6 +24,24 @@ exports.main = async (event, context) => {
   }
 }
 
+async function getImageAndTips(event){
+
+  let indexImage = await db.collection('dailyTips')
+  .where({type: 'indexImage'})
+  .get();
+  let id = await db.collection('dailyTips')
+  .where({type: 'tip'})
+  .orderBy('time','desc')
+  .get();
+
+  return {indexImage,id}
+}
+
+async function getDailyTips(event){
+  return await db.collection('dailyTips')
+  .orderBy('time','desc')
+  .get()
+}
 
 async function getStyles(event) {
   return await db.collection('styles').get()
