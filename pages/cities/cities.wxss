@@ -8,12 +8,25 @@ page {
 .container .search_container {
   background-color: #f8f8f8;
   border-radius: 30rpx;
+  position: relative;
 }
 .container .search_container l-input {
   flex: 1;
 }
-.container .search_container l-input l-button .l-class {
-  border-radius: 20rpx;
+.container .search_container .search_content {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  margin-top: 20rpx;
+}
+.container .search_container .search_content .search_info {
+  background-color: #fff;
+  font-size: 28rpx;
+  padding: 20rpx 50rpx;
+  border-bottom: 1rpx solid #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .container .provinces_container {
   margin-top: 30rpx ;

@@ -9,7 +9,9 @@ Page({
    */
   data: {
     addresses: [],
-    isFrom: false
+    isFrom: false,
+    search_cities: []
+    // isFocus: false
   },
 
   /**
@@ -107,11 +109,23 @@ Page({
                 city: "泉州"
               });
               break;
+            case "杭州":
+              v.cities.push({
+                province: "浙江",
+                city: "杭州"
+              });
+              break;
+            case "南昌":
+              v.cities.push({
+                province: "江西",
+                city: "南昌"
+              });
+              break;
             default:
-              console.log(k+"不会还有吧？");
+              console.log(k + "不会还有吧？");
           }
         })
-      }else{
+      } else {
         v[v.title].forEach((c, j) => {
           v['cities'].push({
             // id: j,
@@ -155,19 +169,65 @@ Page({
     // ]
 
     // console.log(data);
-    
+
     this.setData({
       addresses: data
     })
   },
+  TimeID: -1,
   // 处理input输入事件
-  handleInput() {
+  handleInput(e) {
+    // console.log(this.data.addresses);
+    let {
+      value
+    } = e.detail;
+    // console.log(value);
+    // 检验输入是否合法
+    if (!value.trim()) {
+      this.setData({
+        search_cities: []
+      });
+      // 清除定时器
+      clearTimeout(this.TimeId);
+      return;
+    }
+    // 输入合法
+    // 清除定时器id
+    clearTimeout(this.TimeId);
+    // 为请求设置定时器，并储存TimeId
+    this.TimeId=setTimeout(()=>{
+      // 查询匹配城市
+      this.qsearch(value);
+    },500);
+  },
+  
+  // 查询匹配城市
+  qsearch(value){
+    let {
+      addresses
+    } = this.data;
+    let search_cities = [];
+    addresses.forEach(v => {
+      v.cities.forEach(j=>{
+        if (j.city.indexOf(value) != -1 && v.title != '热门城市') {
+          search_cities.push(j);
+        }
+      })
+    })
+    // console.log(search_cities);
+    this.setData({
+      search_cities
+    })
 
   },
-  // 处理提交按钮事件
-  handleTap() {
 
+  // 处理取消按钮
+  handleClear(){
+    this.setData({
+      search_cities: []
+    })
   },
+  
   // 处理选中城市之后的返回事件
   handleBack(e) {
     // 因为switchTab不能带页面参数，故将页面相关信息存入app.js的全局变量中

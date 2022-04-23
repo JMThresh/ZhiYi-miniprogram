@@ -1,9 +1,18 @@
 <view class="container">
     <!-- 搜索框 -->
     <view class="search_container">
-        <l-input type="text" placeholder="请输入城市名称" bind:lininput="handleInput" l-class="l-class">
-            <l-button slot="right" size="mini" width="120" l-class="l-class" bindtap="{{handleTap}}">搜索</l-button>
+        <l-input 
+        type="text" 
+        placeholder="请输入城市名称" 
+        bind:lininput="handleInput" 
+        bind:linclear="handleClear"
+        clear="{{true}}" 
+        required="{{true}}" 
+        l-class="l-class">
         </l-input>
+        <view class="search_content">
+            <view class="search_info" wx:for="{{search_cities}}" wx:key="city" bindtap="handleBack" data-address="{{item}}">{{item.city}}</view>
+        </view>
     </view>
     <!-- 省份列表 -->
     <view class="provinces_container">
